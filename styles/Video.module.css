@@ -1,0 +1,137 @@
+.modal {
+  position: absolute;
+  /** centers modal **/
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  width: 800px;
+  bottom: 40px;
+  background-color: var(--black40);
+  top: 10%;
+
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid var(--shadow10);
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/** gives box shadow to the video frame **/
+.borderBoxShadow {
+  -webkit-box-shadow: 0 3px 7px var(--shadow20);
+  -moz-box-shadow: 0 3px 7px var(--shadow20);
+  box-shadow: 0 3px 7px var(--shadow20);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  opacity: 1;
+  background: linear-gradient(to top, var(--black10), transparent 50%);
+}
+
+/** Makes video edges curvy **/
+.videoPlayer {
+  border-radius: 10px 10px 0px 0px;
+  composes: borderBoxShadow;
+}
+
+/** Modal body **/
+.modalBody {
+  padding: 0 3rem;
+}
+
+.modalBodyContent {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  column-gap: 2em;
+}
+
+.col1 {
+  max-height: 50vh /* 208px */;
+  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.publishTime {
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  margin-top: 1.5rem /* 24px */;
+  margin-bottom: 0.5rem /* 8px */;
+  color: var(--green10);
+}
+
+.text {
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  color: var(--white10);
+}
+
+.description {
+  margin-bottom: 0.5rem /* 8px */;
+  margin-top: 0.75rem /* 12px */;
+}
+
+.col2 {
+  color: var(--white10);
+  line-height: 1.75rem /* 28px */;
+  display: flex;
+  flex-direction: column;
+}
+
+.subText {
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+  margin-left: 0px;
+  overflow-wrap: break-word;
+}
+
+.subTextWrapper {
+  margin-top: 1.5rem /* 24px */;
+}
+
+.textColor {
+  color: var(--gray10);
+}
+
+.channelTitle {
+  color: var(--white30);
+  margin: 0px;
+}
+
+@media (min-width: 1024px) {
+  .modal {
+    top: 10%;
+    bottom: 40px;
+    width: 50%;
+  }
+}
+
+/** LikeDislike */
+
+.likeDislikeBtnWrapper {
+  display: flex;
+  margin-bottom: 0.75rem /* 12px */;
+  position: absolute;
+  top: 35%;
+  padding-left: 1rem /* 48px */;
+}
+
+.btnWrapper {
+  border-color: var(--white10);
+  border-style: solid;
+  border-width: 2px;
+  background-color: var(--gray40);
+  border-radius: 9999px;
+  padding: 0.5rem /* 8px */;
+  display: flex;
+  justify-content: center;
+}
+
+.likeBtnWrapper {
+  margin-right: 0.5rem /* 8px */;
+}

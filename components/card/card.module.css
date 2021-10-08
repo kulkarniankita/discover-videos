@@ -1,0 +1,51 @@
+.imgMotionWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.imgMotionWrapper:hover {
+  z-index: 99;
+}
+
+.smItem {
+  position: relative;
+  width: 300px;
+  min-width: 300px;
+  height: 170px;
+  min-height: 170px;
+}
+
+.mdItem {
+  position: relative;
+  width: 158px;
+  min-width: 158px;
+  height: 280px;
+  min-height: 280px;
+}
+
+.lgItem {
+  position: relative;
+  width: 218px;
+  min-width: 218px;
+  height: 434px;
+  min-height: 434px;
+}
+.container {
+  margin-right: 0.25rem /* 4px */;
+  cursor: pointer;
+}
+
+.cardImg {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+
+  border-radius: 0.375rem /* 6px */;
+  object-fit: cover;
+
+  object-position: center;
+  display: block;
+
+  max-width: 100%;
+}
