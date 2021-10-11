@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log({ hi: "hi" });
   useEffect(async () => {
     const isLoggedIn = await magic.user.isLoggedIn();
     if (isLoggedIn) {
