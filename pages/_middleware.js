@@ -7,7 +7,7 @@ export async function middleware(req) {
 
   const { pathname } = req.nextUrl;
 
-  if(pathname.includes('/api/login') || userId) {
+  if(pathname.includes('/api/login') || userId || pathname.includes('/static')) {
     return NextResponse.next();
   }
 
