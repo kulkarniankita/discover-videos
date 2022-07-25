@@ -1,0 +1,134 @@
+.container {
+  color: var(--white10);
+  position: fixed;
+  top: 0px;
+  background-image: linear-gradient(to bottom, var(--gradient-stops));
+
+  --gradient-from: var(--black);
+  --gradient-stops: var(--gradient-from), var(--gradient-to, rgba(0, 0, 0, 0));
+  width: 100%;
+  z-index: 50;
+}
+
+.wrapper {
+  padding-left: 1rem /* 16px */;
+  padding-right: 1rem /* 16px */;
+  display: flex;
+  padding: 1.25rem /* 20px */;
+}
+
+.logoLink {
+  display: flex;
+  font-weight: 500;
+  font-size: 1rem;
+  align-items: center;
+  color: var(--white10);
+  margin-bottom: 1rem /* 16px */;
+}
+
+.logoWrapper {
+  color: var(--red);
+  width: 8rem /* 128px */;
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin-left: 1.5rem /* 24px */;
+  font-size: 0.875rem /* 14px */;
+  font-size: 1rem;
+
+  line-height: 1.25rem /* 20px */;
+  list-style: none;
+}
+
+.navItem {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.75rem /* 12px */;
+}
+
+.navItem2 {
+  cursor: pointer;
+}
+
+.navContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-left: auto;
+}
+
+.usernameBtn {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.username {
+  font-size: 1rem;
+}
+
+.navDropdown {
+  position: absolute;
+  margin-left: auto;
+  margin-top: 0.5rem /* 8px */;
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+  padding-right: 0.5rem;
+  background-color: var(--black50);
+  border-width: 1px;
+  color: var(--white);
+  border-radius: 0.25rem /* 4px */;
+
+  border-color: var(--blue);
+
+  box-shadow: var(--shadow30, 0 0 #0000), var(--ring-shadow, 0 0 #0000),
+    var(--shadow30);
+}
+
+.linkName {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  display: block;
+  padding-left: 0.5rem /* 8px */;
+  padding-right: 0.5rem /* 8px */;
+
+  font-size: 1rem /* 16px */;
+  line-height: 1.25rem /* 20px */;
+  border-radius: 0.25rem /* 4px */;
+  cursor: pointer;
+}
+
+.linkName:hover {
+  text-decoration: underline;
+}
+
+.lineWrapper {
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding-left: 4rem /* 64px */;
+    padding-right: 4rem /* 64px */;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logoLink {
+    margin-bottom: 0px;
+  }
+
+  .navItems {
+    margin-left: 3rem /* 48px */;
+  }
+
+  .navItem {
+    margin-right: 1.25rem /* 20px */;
+  }
+}
