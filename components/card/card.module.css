@@ -1,3 +1,12 @@
+.imgMotionWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.imgMotionWrapper:hover {
+  z-index: 99;
+}
+
 .smItem {
   position: relative;
   width: 300px;
