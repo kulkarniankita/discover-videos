@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./navbar.module.css";
 
 import { useRouter } from "next/router";
@@ -5,6 +6,8 @@ import Link from "next/link";
 
 const NavBar = (props) => {
   const { username } = props;
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const router = useRouter();
 
@@ -16,6 +19,11 @@ const NavBar = (props) => {
   const handleOnClickMyList = (e) => {
     e.preventDefault();
     router.push("/browse/my-list");
+  };
+
+  const handleShowDropdown = (e) => {
+    e.preventDefault();
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -35,18 +43,19 @@ const NavBar = (props) => {
         </ul>
         <nav className={styles.navContainer}>
           <div>
-            <button className={styles.usernameBtn}>
+            <button className={styles.usernameBtn} onClick={handleShowDropdown}>
               <p className={styles.username}>{username}</p>
             </button>
-
-            <div className={styles.navDropdown}>
-              <div>
-                <Link href="/login">
-                  <a className={styles.linkName}>Sign out</a>
-                </Link>
-                <div className={styles.lineWrapper}></div>
+            {showDropdown && (
+              <div className={styles.navDropdown}>
+                <div>
+                  <Link href="/login">
+                    <a className={styles.linkName}>Sign out</a>
+                  </Link>
+                  <div className={styles.lineWrapper}></div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </nav>
       </div>
