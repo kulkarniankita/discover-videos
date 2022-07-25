@@ -1,0 +1,125 @@
+.container {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.leftWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 4rem /* 64px */;
+  padding-right: 4rem /* 64px */;
+  height: 100%;
+
+  flex-direction: column;
+  margin-top: 6rem /* 96px */;
+}
+
+.nseriesWrapper {
+  display: flex;
+}
+
+.firstLetter {
+  font-size: 3.75rem /* 60px */;
+  line-height: 1;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.series {
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+  color: var(--gray20);
+  align-self: center;
+}
+
+.title {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  font-weight: 800;
+  color: var(--white10);
+  -webkit-text-stroke: 2px var(--black); /* width and color */
+}
+
+.subTitle {
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  color: var(--white10);
+  -webkit-text-stroke: 1px gray; /* width and color */
+}
+
+.playBtnWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.playText {
+  color: rgb(31, 41, 55);
+  font-weight: 600;
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  padding-left: 0.25rem /* 4px */;
+  text-align: center;
+}
+
+.bannerImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+
+  --tw-gradient-from: var(--black);
+
+  background-size: cover;
+  background-position: "50% 50%";
+}
+
+.btnWithIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.25rem /* 20px */;
+  padding-right: 1.25rem /* 20px */;
+  margin-top: 1.25rem /* 20px */;
+
+  border-radius: 0.5rem /* 8px */;
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+
+  background-color: var(--white10);
+  width: 8rem /* 128px */;
+}
+
+@media (min-width: 768px) {
+  .left {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.75rem /* 60px */;
+    line-height: 1;
+  }
+
+  .subTitle {
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+  }
+
+  .playText {
+    font-size: 1.25rem /* 20px */;
+    line-height: 1.75rem /* 28px */;
+  }
+}
