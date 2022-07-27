@@ -29,7 +29,6 @@ export default function Home({
   productivityVideos,
   popularVideos,
 }) {
-  console.log({ magic });
   return (
     <div className={styles.container}>
       <Head>
