@@ -11,6 +11,7 @@ import { magic } from "../lib/magic-client";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [userMsg, setUserMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
@@ -24,6 +25,7 @@ const Login = () => {
   const handleLoginWithEmail = async (e) => {
     console.log("hi button");
     e.preventDefault();
+    setIsLoading(true);
 
     if (email) {
       if (email === "kulkarni.ankita09@gmail.com") {
@@ -34,17 +36,21 @@ const Login = () => {
           });
           console.log({ didToken });
           if (didToken) {
+            setIsLoading(false);
             router.push("/");
           }
         } catch (error) {
           // Handle errors if required!
           console.error("Something went wrong logging in", error);
+          setIsLoading(false);
         }
       } else {
+        setIsLoading(false);
         setUserMsg("Something went wrong logging in");
       }
     } else {
       // show user message
+      setIsLoading(false);
       setUserMsg("Enter a valid email address");
     }
   };
@@ -85,7 +91,7 @@ const Login = () => {
 
           <p className={styles.userMsg}>{userMsg}</p>
           <button onClick={handleLoginWithEmail} className={styles.loginBtn}>
-            Sign In
+            {isLoading ? "Loading..." : "Sign In"}
           </button>
         </div>
       </main>
