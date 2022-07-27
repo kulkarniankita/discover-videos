@@ -11,12 +11,12 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Netflix SignIn</title>
       </Head>
 
-      <header>
+      <header className={styles.header}>
         <div className={styles.headerWrapper}>
           <Link className={styles.logoLink} href="/">
             <a>
