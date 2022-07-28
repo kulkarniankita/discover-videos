@@ -6,7 +6,7 @@ import { getYoutubeVideoById } from "../../lib/videos";
 
 Modal.setAppElement("#__next");
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   //data to fetch from API
   // const video = {
   //   title: "Hi cute dog",
@@ -16,7 +16,9 @@ export async function getStaticProps() {
   //   channelTitle: "Paramount Pictures",
   //   viewCount: 10000,
   // };
-  const videoId = "4zH5iYM4wJo";
+  console.log({ context });
+
+  const videoId = context.params.videoId;
 
   const videoArray = await getYoutubeVideoById(videoId);
 
