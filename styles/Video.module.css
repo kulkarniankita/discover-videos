@@ -23,3 +23,21 @@
   width: 100%;
   height: 100vh;
 }
+
+/** gives box shadow to the video frame **/
+.borderBoxShadow {
+  -webkit-box-shadow: 0 3px 7px var(--shadow20);
+  -moz-box-shadow: 0 3px 7px var(--shadow20);
+  box-shadow: 0 3px 7px var(--shadow20);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  opacity: 1;
+  background: linear-gradient(to top, var(--black10), transparent 50%);
+}
+
+/** Makes video edges curvy **/
+.videoPlayer {
+  border-radius: 10px 10px 0px 0px;
+  composes: borderBoxShadow;
+}
