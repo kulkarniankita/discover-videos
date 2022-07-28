@@ -11,6 +11,7 @@
   "dependencies": {
     "@magic-sdk/admin": "^1.4.1",
     "classnames": "^2.3.1",
+    "cookie": "^0.5.0",
     "framer-motion": "^6.5.1",
     "jsonwebtoken": "^8.5.1",
     "magic-sdk": "^8.1.1",
