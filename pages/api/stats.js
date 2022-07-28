@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { findVideoIdByUser } from "../../lib/db/hasura";
 
 export default async function stats(req, resp) {
   if (req.method === "POST") {
@@ -11,7 +12,13 @@ export default async function stats(req, resp) {
       } else {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         console.log({ decoded });
-        resp.send({ msg: "it works", decoded });
+
+        const userId = "<did>";
+        const videoId = "4zH5iYM4wJo";
+
+        const findVideoId = await findVideoIdByUser(token, userId, videoId);
+        console.log({ findVideoId });
+        resp.send({ msg: "it works", decoded, findVideoId });
       }
     } catch (error) {
       console.error("Error occurred /stats", error);
