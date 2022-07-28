@@ -25,24 +25,11 @@ export default async function login(req, res) {
         },
         process.env.JWT_SECRET
       );
-      console.log({ token });
-
-      // CHECK IF USER EXISTS
 
       const isNewUserQuery = await isNewUser(token, metadata.issuer);
-      if (isNewUserQuery) {
-        const createNewUserMutation = await createNewUser(token, metadata);
-        console.log({ createNewUserMutation });
-        //set the cookie
-        const cookie = setTokenCookie(token);
-        console.log({ cookie });
-        res.send({ done: true, msg: "is a new user" });
-      } else {
-        //set the cookie
-        const cookie = setTokenCookie(token);
-        console.log({ cookie });
-        res.send({ done: true, msg: "not a new user" });
-      }
+      isNewUserQuery && (await createNewUser(token, metadata));
+      setTokenCookie(token, res);
+      res.send({ done: true });
     } catch (error) {
       console.error("Something went wrong logging in", error);
       res.status(500).send({ done: false });
