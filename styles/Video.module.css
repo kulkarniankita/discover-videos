@@ -8,7 +8,7 @@
   width: 800px;
   bottom: 40px;
   background-color: var(--black40);
-  top: 5%;
+  top: 10%;
 
   outline: none;
   border-radius: 10px;
@@ -54,7 +54,7 @@
 }
 
 .col1 {
-  max-height: 23rem /* 208px */;
+  max-height: 50vh /* 208px */;
   overflow-y: hidden;
   overflow-y: scroll;
 }
