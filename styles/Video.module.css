@@ -110,3 +110,24 @@
     width: 100%;
   }
 }
+
+/** LikeDislike */
+
+.likeDislikeBtnWrapper {
+  display: flex;
+  margin-bottom: 0.75rem /* 12px */;
+  position: absolute;
+  top: 35%;
+  padding-left: 1rem /* 48px */;
+}
+
+.btnWrapper {
+  border-color: var(--white10);
+  border-style: solid;
+  border-width: 2px;
+  background-color: var(--gray40);
+  border-radius: 9999px;
+  padding: 0.5rem /* 8px */;
+  display: flex;
+  justify-content: center;
+}
