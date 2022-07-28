@@ -39,6 +39,8 @@ export default async function login(req, res) {
         res.send({ done: true, msg: "is a new user" });
       } else {
         //set the cookie
+        const cookie = setTokenCookie(token);
+        console.log({ cookie });
         res.send({ done: true, msg: "not a new user" });
       }
     } catch (error) {
