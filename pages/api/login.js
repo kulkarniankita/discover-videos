@@ -4,6 +4,7 @@ export default async function login(req, res) {
       const auth = req.headers.authorization;
       const didToken = auth ? auth.substr(7) : "";
       console.log({ token });
+      //invoke magic
       res.send({ done: true });
     } catch (error) {
       console.error("Something went wrong logging in", error);
