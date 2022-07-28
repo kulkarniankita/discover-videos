@@ -26,6 +26,7 @@ export default async function stats(req, resp) {
             watched: true,
             userId,
             videoId: "gxc6y2ZVfCU",
+            favourited: 0,
           });
           resp.send({ msg: "it works", response });
         } else {
