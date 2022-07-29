@@ -12,8 +12,9 @@ import {
 } from "../lib/videos";
 
 export async function getServerSideProps(context) {
-  const userId = "";
-  const token = "";
+  const token = context.req ? context.req?.cookies.token : null;
+  console.log({ token });
+  const userId = "<userid>";
 
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
 
