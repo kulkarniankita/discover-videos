@@ -7,10 +7,8 @@ const Banner = (props) => {
   const router = useRouter();
 
   const handleOnPlay = () => {
-    console.log("handleOnPlay");
     router.push(`video/${videoId}`);
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.leftWrapper}>

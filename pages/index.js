@@ -3,11 +3,12 @@ import styles from "../styles/Home.module.css";
 
 import Banner from "../components/banner/banner";
 import NavBar from "../components/nav/navbar";
+
 import SectionCards from "../components/card/section-cards";
 
 import {
-  getPopularVideos,
   getVideos,
+  getPopularVideos,
   getWatchItAgainVideos,
 } from "../lib/videos";
 import { redirectUser } from "../utils/redirectUser";
@@ -26,14 +27,12 @@ export async function getServerSideProps(context) {
   }
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
 
-  console.log({ watchItAgainVideos });
   const disneyVideos = await getVideos("disney trailer");
   const productivityVideos = await getVideos("Productivity");
 
   const travelVideos = await getVideos("indie music");
 
   const popularVideos = await getPopularVideos();
-
   return {
     props: {
       disneyVideos,
@@ -52,7 +51,6 @@ export default function Home({
   popularVideos,
   watchItAgainVideos,
 }) {
-  console.log({ watchItAgainVideos });
   return (
     <div className={styles.container}>
       <Head>
