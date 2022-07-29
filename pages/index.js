@@ -5,9 +5,19 @@ import Banner from "../components/banner/banner";
 import NavBar from "../components/nav/navbar";
 import SectionCards from "../components/card/section-cards";
 
-import { getPopularVideos, getVideos } from "../lib/videos";
+import {
+  getPopularVideos,
+  getVideos,
+  getWatchItAgainVideos,
+} from "../lib/videos";
 
 export async function getServerSideProps(context) {
+  const userId = "";
+  const token = "";
+
+  const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
+
+  console.log({ watchItAgainVideos });
   const disneyVideos = await getVideos("disney trailer");
   const productivityVideos = await getVideos("Productivity");
 
@@ -16,7 +26,13 @@ export async function getServerSideProps(context) {
   const popularVideos = await getPopularVideos();
 
   return {
-    props: { disneyVideos, travelVideos, productivityVideos, popularVideos },
+    props: {
+      disneyVideos,
+      travelVideos,
+      productivityVideos,
+      popularVideos,
+      watchItAgainVideos,
+    },
   };
 }
 
@@ -25,7 +41,9 @@ export default function Home({
   travelVideos,
   productivityVideos,
   popularVideos,
+  watchItAgainVideos,
 }) {
+  console.log({ watchItAgainVideos });
   return (
     <div className={styles.container}>
       <Head>
