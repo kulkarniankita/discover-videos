@@ -7,6 +7,7 @@ export async function middleware(req, ev) {
   const { pathname } = req.nextUrl;
 
   if (
+    pathname.startsWith("/_next") ||
     pathname.includes("/api/login") ||
     userId ||
     pathname.includes("/static")
