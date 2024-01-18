@@ -1,7 +1,7 @@
-import Card from "./card";
-import Link from "next/link";
-import clsx from "classnames";
-import styles from "./section-cards.module.css";
+import Card from './card';
+import Link from 'next/link';
+import clsx from 'classnames';
+import styles from './section-cards.module.css';
 
 const SectionCards = (props) => {
   const { title, videos = [], size, shouldWrap = false, shouldScale } = props;
@@ -12,14 +12,12 @@ const SectionCards = (props) => {
         {videos.map((video, idx) => {
           return (
             <Link href={`/video/${video.id}`} key={video.id}>
-              <a>
-                <Card
-                  id={idx}
-                  imgUrl={video.imgUrl}
-                  size={size}
-                  shouldScale={shouldScale}
-                />
-              </a>
+              <Card
+                id={idx}
+                imgUrl={video.imgUrl}
+                size={size}
+                shouldScale={shouldScale}
+              />
             </Link>
           );
         })}

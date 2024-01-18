@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { useRouter } from "next/router";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { magic } from "../lib/magic-client";
+import { magic } from '../lib/magic-client';
 
-import styles from "../styles/Login.module.css";
+import styles from '../styles/Login.module.css';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [userMsg, setUserMsg] = useState("");
+  const [email, setEmail] = useState('');
+  const [userMsg, setUserMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -20,17 +20,17 @@ const Login = () => {
     const handleComplete = () => {
       setIsLoading(false);
     };
-    router.events.on("routeChangeComplete", handleComplete);
-    router.events.on("routeChangeError", handleComplete);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
 
     return () => {
-      router.events.off("routeChangeComplete", handleComplete);
-      router.events.off("routeChangeError", handleComplete);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
     };
   }, [router]);
 
   const handleOnChangeEmail = (e) => {
-    setUserMsg("");
+    setUserMsg('');
     const email = e.target.value;
     setEmail(email);
   };
@@ -47,31 +47,31 @@ const Login = () => {
           email,
         });
         if (didToken) {
-          const response = await fetch("/api/login", {
-            method: "POST",
+          const response = await fetch('/api/login', {
+            method: 'POST',
             headers: {
               Authorization: `Bearer ${didToken}`,
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           });
 
           const loggedInResponse = await response.json();
           if (loggedInResponse.done) {
-            router.push("/");
+            router.push('/');
           } else {
             setIsLoading(false);
-            setUserMsg("Something went wrong logging in");
+            setUserMsg('Something went wrong logging in');
           }
         }
       } catch (error) {
         // Handle errors if required!
-        console.error("Something went wrong logging in", error);
+        console.error('Something went wrong logging in', error);
         setIsLoading(false);
       }
     } else {
       // show user message
       setIsLoading(false);
-      setUserMsg("Enter a valid email address");
+      setUserMsg('Enter a valid email address');
     }
   };
   return (
@@ -83,16 +83,14 @@ const Login = () => {
       <header className={styles.header}>
         <div className={styles.headerWrapper}>
           <Link className={styles.logoLink} href="/">
-            <a>
-              <div className={styles.logoWrapper}>
-                <Image
-                  src="/static/netflix.svg"
-                  alt="Netflix logo"
-                  width="128px"
-                  height="34px"
-                />
-              </div>
-            </a>
+            <div className={styles.logoWrapper}>
+              <Image
+                src="/static/netflix.svg"
+                alt="Netflix logo"
+                width="128px"
+                height="34px"
+              />
+            </div>
           </Link>
         </div>
       </header>
@@ -110,7 +108,7 @@ const Login = () => {
 
           <p className={styles.userMsg}>{userMsg}</p>
           <button onClick={handleLoginWithEmail} className={styles.loginBtn}>
-            {isLoading ? "Loading..." : "Sign In"}
+            {isLoading ? 'Loading...' : 'Sign In'}
           </button>
         </div>
       </main>

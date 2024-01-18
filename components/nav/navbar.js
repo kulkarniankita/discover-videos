@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import styles from "./navbar.module.css";
+import { useEffect, useState } from 'react';
+import styles from './navbar.module.css';
 
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { magic } from "../../lib/magic-client";
+import { magic } from '../../lib/magic-client';
 
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [username, setUsername] = useState("");
-  const [didToken, setDidToken] = useState("");
+  const [username, setUsername] = useState('');
+  const [didToken, setDidToken] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const NavBar = () => {
           setDidToken(didToken);
         }
       } catch (error) {
-        console.error("Error retrieving email", error);
+        console.error('Error retrieving email', error);
       }
     };
     applyUsernameInNav();
@@ -31,12 +31,12 @@ const NavBar = () => {
 
   const handleOnClickHome = (e) => {
     e.preventDefault();
-    router.push("/");
+    router.push('/');
   };
 
   const handleOnClickMyList = (e) => {
     e.preventDefault();
-    router.push("/browse/my-list");
+    router.push('/browse/my-list');
   };
 
   const handleShowDropdown = (e) => {
@@ -48,18 +48,18 @@ const NavBar = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/logout", {
-        method: "POST",
+      const response = await fetch('/api/logout', {
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${didToken}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
 
       const res = await response.json();
     } catch (error) {
-      console.error("Error logging out", error);
-      router.push("/login");
+      console.error('Error logging out', error);
+      router.push('/login');
     }
   };
 
@@ -67,16 +67,14 @@ const NavBar = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <Link className={styles.logoLink} href="/">
-          <a>
-            <div className={styles.logoWrapper}>
-              <Image
-                src="/static/netflix.svg"
-                alt="Netflix logo"
-                width="128px"
-                height="34px"
-              />
-            </div>
-          </a>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/static/netflix.svg"
+              alt="Netflix logo"
+              width="128px"
+              height="34px"
+            />
+          </div>
         </Link>
 
         <ul className={styles.navItems}>
@@ -93,7 +91,7 @@ const NavBar = () => {
               <p className={styles.username}>{username}</p>
               {/** Expand more icon */}
               <Image
-                src={"/static/expand_more.svg"}
+                src={'/static/expand_more.svg'}
                 alt="Expand dropdown"
                 width="24px"
                 height="24px"
