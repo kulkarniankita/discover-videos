@@ -7,7 +7,8 @@ import { verifyToken } from "../../lib/utils";
 
 export default async function stats(req, resp) {
   try {
-    const token = req.cookies.token;
+    const token = req ? req.cookies.token : null;
+
     if (!token) {
       resp.status(403).send({});
     } else {
@@ -28,9 +29,11 @@ export default async function stats(req, resp) {
               videoId,
               favourited,
             });
+            console.log("Stats updated");
             resp.send({ data: response });
           } else {
             // add it
+            console.log("Stats inserted");
             const response = await insertStats(token, {
               watched,
               userId,
@@ -41,8 +44,10 @@ export default async function stats(req, resp) {
           }
         } else {
           if (doesStatsExist) {
+            console.log("Stat already exists");
             resp.send(findVideo);
           } else {
+            console.log("Video not found");
             resp.status(404);
             resp.send({ user: null, msg: "Video not found" });
           }
