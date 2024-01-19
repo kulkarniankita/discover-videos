@@ -42,7 +42,7 @@ const Card = (props) => {
         <Image
           src={imgSrc}
           alt="image"
-          layout="fill"
+          fill={true}
           onError={handleOnError}
           className={styles.cardImg}
         />
