@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import cls from "classnames";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import styles from "./card.module.css";
 
